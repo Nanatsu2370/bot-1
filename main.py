@@ -244,7 +244,7 @@ def onmessage(update,bot:ObigramClient):
             tl_admin_user = os.environ.get('tl_admin_user')
 
             #set in debug
-            tl_admin_user = '@Niurka00'
+            tl_admin_user = 'FriendXfriendss'
 
             jdb = JsonDatabase('database')
             jdb.check_create()
@@ -444,11 +444,12 @@ def onmessage(update,bot:ObigramClient):
                 return
             
             if '/search_proxy' in msgText:
-                msg_start = 'Buscando Proxy. Puede durar asi que espere😂'
+                msg_start = 'Buscando Proxy'
                 bot.sendMessage(update.message.chat.id,msg_start)
                 print("Buscando proxy...")
                 for port in range(2080,2085):
                     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    sock.settimeout(1)
                     result = sock.connect_ex(('181.225.253.188',port))  
                     
                     if result == 0:
@@ -477,7 +478,7 @@ def onmessage(update,bot:ObigramClient):
                 bot.sendMessage(update.message.chat.id, f'🔓Desencriptado Completado:\n{proxy_de}')
                 return
             
-            if '/set_proxy' in msgText:
+            if '/proxy' in msgText:
                 try:
                     cmd = str(msgText).split(' ',2)
                     proxy = cmd[1]
@@ -641,7 +642,7 @@ def onmessage(update,bot:ObigramClient):
 
 
 def main():
-    bot_token = '5498148937:AAEN56m6TxRJuaFiJB-hDC-B8QnTbosLhiA'
+    bot_token = '5233279296:AAH1UHHO4xGJRUeANARpuUrLTzQ3jxBP6b8'
 
 
     bot = ObigramClient(bot_token)
