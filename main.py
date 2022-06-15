@@ -449,6 +449,7 @@ def onmessage(update,bot:ObigramClient):
                 print("Buscando proxy...")
                 for port in range(2080,2085):
                     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                    sock.settimeout(1)
                     result = sock.connect_ex(('181.225.253.188',port))  
                     
                     if result == 0:
